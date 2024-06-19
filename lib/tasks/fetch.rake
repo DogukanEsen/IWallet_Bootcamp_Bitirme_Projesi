@@ -50,5 +50,28 @@ namespace :fetch do
         user: user
       )
     end
+    puts "Users have been fetched and saved to the database."
+
+  end
+
+  task albums: :environment do
+    require 'net/http'
+    require 'json'
+
+    Album.destroy_all
+
+    url = 'https://jsonplaceholder.typicode.com/albums'
+    uri = URI(url)
+    response = Net::HTTP.get(uri)
+    albums = JSON.parse(response)
+
+    albums.each do |album_data|
+      Album.create(
+        title: album_data['title'],
+        user_id: album_data['userId']
+      )
+    end
+
+    puts "Albums have been fetched and saved to the database."
   end
 end
