@@ -25,6 +25,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_150216) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "album_details", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.string "thumbnail_url"
+    t.bigint "album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_album_details_on_album_id"
+  end
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
@@ -65,6 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_150216) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "album_details", "albums"
   add_foreign_key "albums", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "geos", "addresses"
