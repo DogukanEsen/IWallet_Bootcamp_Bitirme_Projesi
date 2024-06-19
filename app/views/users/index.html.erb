@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-12 mb-3">
+        <div class="card">
+          <div class="row g-0 align-items-center">
+            <div class="col-md-2 d-flex justify-content-center">
+              <%= image_tag user.profile_photo_url, class: 'img-fluid rounded', alt: "#{user.username} profile photo" %>
+            </div>
+            <div class="col-md-8">
+              <%= render user %>
+            </div>
+            <div class="col-md-2 d-flex justify-content-center">
+              <%= link_to 'Düzenle', edit_user_path(user), class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
