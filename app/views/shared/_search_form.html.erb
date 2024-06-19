@@ -1,0 +1,13 @@
+<%= form_with url: users_path, method: :get, local: true, class: 'mb-4' do %>
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Kullanıcı Ara', aria: { label: 'Kullanıcı Ara' } %>
+    <div class="input-group-append">
+      <%= button_tag type: 'submit', class: 'btn btn-outline-primary' do %>
+        <i class="bi bi-search"></i>
+      <% end %>
+      <%= button_to root_path, method: :get, class: 'btn btn-danger', remote: true do %>
+        <i class="bi bi-x-lg"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
