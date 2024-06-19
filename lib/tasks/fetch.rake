@@ -5,6 +5,11 @@ namespace :fetch do
     require 'net/http'
     require 'json'
 
+    Geo.destroy_all
+    Address.destroy_all
+    Company.destroy_all
+    User.destroy_all
+
     url = 'https://jsonplaceholder.typicode.com/users'
     uri = URI(url)
     response = Net::HTTP.get(uri)
@@ -17,7 +22,8 @@ namespace :fetch do
         username: user_data['username'],
         email: user_data['email'],
         phone: user_data['phone'],
-        website: user_data['website']
+        website: user_data['website'],
+        profile_photo_url: "https://picsum.photos/id/#{user_data['id']}/1000/1000"
       )
 
       address_data = user_data['address']
