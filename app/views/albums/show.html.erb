@@ -1,0 +1,22 @@
+<div class="container">
+  <h2><%= @album.title %> Albüm detayları</h2>
+  <% if @album_details.any? %>
+    <div class="row">
+      <% @album_details.each do |detail| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img src="<%= detail.thumbnail_url %>" class="card-img-top" alt="<%= detail.title %>">
+            <div class="card-body">
+              <h5 class="card-title"><%= detail.title %></h5>
+              <p class="card-text">
+                <a href="<%= detail.url %>" target="_blank">Albüm resmi (büyük)</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Albüm detayları bulunamadı.</p>
+  <% end %>
+</div>

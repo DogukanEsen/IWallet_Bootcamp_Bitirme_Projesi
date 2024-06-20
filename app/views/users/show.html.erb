@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h2>User Information</h2>
+      <h2>Kullanıcı Bilgileri</h2>
       <div class="col-md-2 d-flex justify-content-center">
         <% if @user.profile_photo_url.present? %>
           <%= image_tag @user.profile_photo_url, class: 'img-fluid rounded', alt: "#{@user.username} profile photo" %>
@@ -13,15 +13,15 @@
       <%= link_to 'Düzenle', edit_user_path(@user), class: 'btn btn-primary' %>
     </div>
     <div class="col-md-6">
-      <h2>Albums</h2>
+      <h2>Albümler</h2>
       <% if @albums.any? %>
         <ul>
           <% @albums.each do |album| %>
-            <li><%= album.title %></li>
+            <%= link_to album.title, album_path(album) %>
           <% end %>
         </ul>
       <% else %>
-        <p>No albums found.</p>
+        <p>Albüm bulunamadı.</p>
       <% end %>
     </div>
   </div>
