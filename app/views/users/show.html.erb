@@ -17,7 +17,7 @@
       <% if @albums.any? %>
         <ul>
           <% @albums.each do |album| %>
-            <%= link_to album.title, album_path(album) %>
+            <%= link_to album.title, album_path(album) , data: { turbo_frame: 'modal' } %>
           <% end %>
         </ul>
       <% else %>

@@ -1,22 +1,31 @@
-<div class="container">
-  <h2><%= @album.title %> Albüm detayları</h2>
-  <% if @album_details.any? %>
-    <div class="row">
-      <% @album_details.each do |detail| %>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img src="<%= detail.thumbnail_url %>" class="card-img-top" alt="<%= detail.title %>">
-            <div class="card-body">
-              <h5 class="card-title"><%= detail.title %></h5>
-              <p class="card-text">
-                <a href="<%= detail.url %>" target="_blank">Albüm resmi (büyük)</a>
-              </p>
+<%= turbo_frame_tag "modal" do %>
+  <div class="modall" style="max-height: calc(100vh - 200px); overflow-y: auto;">
+    <h1><%= @album.title %> Albüm detayları</h1>
+    <br>
+        <% if @album_details.any? %>
+      <div class="row">
+        <% @album_details.each do |detail| %>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img src="<%= detail.thumbnail_url %>" class="card-img-top" alt="<%= detail.title %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= detail.title %></h5>
+                <p class="card-text">
+                  <a href="<%= detail.url %>" target="_blank">Albüm resmi (büyük)</a>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>Albüm detayları bulunamadı.</p>
+    <% end %>
+    <div>
+      <%= link_to "Cancel", "#", data: {
+        controller: "modals",
+        action: "modals#close"
+      }, class: "cancel-button" %>
     </div>
-  <% else %>
-    <p>Albüm detayları bulunamadı.</p>
-  <% end %>
-</div>
+  </div>
+<% end %>
