@@ -1,4 +1,13 @@
-<div class="card-body">
-  <h5 class="card-title"><%= user.name %></h5>
-  <p class="card-text"><%= user.username %></p>
-</div>
+<ul>
+  <li><strong>Ad:</strong> <%= user.name %></li>
+  <li><strong>Username:</strong> <%= user.username %></li>
+  <li><strong>Eposta:</strong> <%= user.email %></li>
+  <li><strong>telefon:</strong> <%= user.phone %></li>
+  <li><strong>Website:</strong> <%= user.website %></li>
+  <li><strong>Adres:</strong> <%= user.address.street %> sokağı, <%= user.address.suite %>
+  <%= user.address.city %> <%= user.address.zipcode %></li>
+  koordinatlar: <%= user.address.geo.lat %>,<%= user.address.geo.lng %>
+  <li><strong>Şirket:</strong> <%= user.company.name %></li>
+  <%= user.company.catchPhrase %><br/>
+  <%= user.company.bs %>
+</ul>
