@@ -8,15 +8,20 @@
           <div class="card">
             <div class="row g-0 align-items-center">
               <div class="col-md-2 d-flex justify-content-center">
-                <%= image_tag user.profile_photo_url, class: 'img-fluid rounded', alt: "#{user.username} profile photo" %>
+                <% if user.profile_photo_url.present? %>
+                  <%= image_tag user.profile_photo_url, class: 'img-fluid rounded', alt: "#{user.username} profile photo" %>
+                <% else %>
+                  <%= image_tag 'default_profile_photo.png', class: 'img-fluid rounded', alt: "#{user.username} profile photo" %>
+                <% end %>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <%= render user %>
-                </div>
+                  <h5 class="card-title"><%= user.name %></h5>
+                  <p class="card-text"><%= user.username %></p>
+               </div>
               </div>
               <div class="col-md-2 d-flex justify-content-center">
-                <%= link_to 'Düzenle', edit_user_path(user), class: 'btn btn-primary' %>
+                <%= link_to 'Görüntüle', user, class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
