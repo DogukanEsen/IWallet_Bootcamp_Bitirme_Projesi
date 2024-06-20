@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to 'Navbar', root_path, class: 'navbar-brand mb-0 h1' %>
+
+    <div class="text-center mt-8">
+      <%= link_to new_user_path, class: "btn btn-outline-success" do %>
+          <i class="bi bi-plus-square"></i>
+        Create User
+      <% end %>
+    </div>
+  </div>
+</nav>
