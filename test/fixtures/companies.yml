@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  catch_phrase: MyString
+  catchPhrase: MyString
   bs: MyString
   user: one
 
 two:
   name: MyString
-  catch_phrase: MyString
+  catchPhrase: MyString
   bs: MyString
   user: two
