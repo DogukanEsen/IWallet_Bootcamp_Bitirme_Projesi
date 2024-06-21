@@ -135,3 +135,7 @@ Yeni kullanıcı oluştururken profil fotoğrafı boş seçilirse aşağıdaki g
 Arama kısmına bulunmayan bir kullanıcının kullanıcı adı yazıldığında bu şekilde bir sonuç döner. 
 
 ![img](./img/10-Kullanıcı%20bulunamadı%20hatası.png)
+
+Uygulama aşağıdaki resimdeki gibi responsive bir tasarıma sahiptir. 
+
+![img](./img/11-Responsive%20Tasarım.png)
